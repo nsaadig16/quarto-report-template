@@ -1,3 +1,6 @@
+project:
+  output-dir: output
+
 format:
   pdf:
     pdf-engine: pdflatex
@@ -5,7 +8,7 @@ format:
     header-includes:
       - |
         \usepackage{graphicx}
-    output-dir: ../
+    output-dir: output
     output-file: report.pdf
     mainfont: "Liberation Serif"
     monofont: "Liberation Mono"
@@ -18,11 +21,6 @@ format:
     linkcolor: blue
     urlcolor: blue
     fig-pos: "H"
-
-title: "First Assignment"
-author:
-  - name: "Naïm Saadi Gallego"
-    mail: "nsg9@alumnes.udl.cat"
 
 date: "Month day, 2026"
 lang: "en"

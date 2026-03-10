@@ -2,3 +2,4 @@
 **/*.quarto_ipynb
 /.quarto/
 report.pdf
+.venv

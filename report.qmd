@@ -1,9 +1,9 @@
 ---
-title: "First Assignment"
+title: "Assignment title"
 author:
-  - name: "Naïm Saadi Gallego"
-    email: "nsg9@alumnes.udl.cat"
-date: "Month day, 2025"
+  - name: "Your name"
+    mail: "Your email"
+date: "Month day, 2026"
 lof: true
 toc: true
 indent: true
@@ -15,12 +15,11 @@ format:
     documentclass: article
     include-in-header:
       text: |
-        % --- Centered title page with logo ---
         \usepackage{titling}
         \makeatletter
         \renewcommand{\maketitle}{
           \begin{titlepage}
-            \vspace*{\fill} % centers vertically
+            \vspace*{\fill}
             \begin{center}
               \includegraphics[width=5cm]{figures/logo.png}\\[1.5cm]
               \vskip -3em
@@ -34,18 +33,38 @@ format:
               \vskip 1em
               {\large \@date}
             \end{center}
-            \vspace*{\fill} % centers vertically
+            \vspace*{\fill}
           \end{titlepage}
         }
         \makeatother
 
-        % --- Reduce space above/below section headings ---
         \usepackage{titlesec}
         \titlespacing*{\section}{0pt}{0.5em plus .2em minus .2em}{0.3em}
         \titlespacing*{\subsection}{0pt}{0.3em plus .1em minus .1em}{0.2em}
 
-        % --- Slightly tighter paragraph spacing ---
         \setlength{\parskip}{0.4em}
         \setlength{\parindent}{5pt}
         \usepackage{appendix}
 ---
+
+# Title
+
+Lorem ipsum dolor sit amet.
+
+## Subtitle
+
+Lorem ipsum dolor sit amet.
+
+### Subsubtitle
+
+Lorem bla bla bla...
+
+$m^a \cdot th = \text{mod} e \rfloor$
+
+``` {python}
+#| label: fig-figure
+#| echo: false
+print("This is some code!")
+```
+
+That @fig-figure is some code!
