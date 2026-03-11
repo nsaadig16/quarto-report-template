@@ -4,6 +4,8 @@ author:
   - name: "Your name"
     mail: "Your email"
 date: "Month day, 2026"
+bibliography: reference.bibtex
+biblio-style: ieee
 lof: true
 toc: true
 indent: true
@@ -53,7 +55,7 @@ Lorem ipsum dolor sit amet.
 
 ## Subtitle
 
-Lorem ipsum dolor sit amet.
+Lorem ipsum dolor sit amet, reference ^[@keyword].
 
 ### Subsubtitle
 
@@ -68,3 +70,6 @@ print("This is some code!")
 ```
 
 That @fig-figure is some code!
+
+::: {#refs}
+:::

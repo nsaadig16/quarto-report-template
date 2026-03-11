@@ -21,6 +21,4 @@ format:
     linkcolor: blue
     urlcolor: blue
     fig-pos: "H"
-
-date: "Month day, 2026"
-lang: "en"
+    cite-method: biblatex
