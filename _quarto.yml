@@ -4,21 +4,60 @@ project:
 format:
   pdf:
     pdf-engine: pdflatex
-    documentclass: report
-    header-includes:
-      - |
-        \usepackage{graphicx}
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage{titling}
+        \makeatletter
+        \renewcommand{\maketitle}{
+          \begin{titlepage}
+            \vspace*{\fill}
+            \begin{center}
+              \includegraphics[width=5cm]{figures/logo.png}\\[1.5cm]
+              \vskip -3em
+              {\LARGE\bfseries \@title \par}
+              \vskip 1em
+              {\large
+                \lineskip .5em
+                \begin{tabular}[t]{c}
+                  \@author
+                \end{tabular}\par}
+              \vskip 1em
+              {\large \@date}
+            \end{center}
+            \vspace*{\fill}
+          \end{titlepage}
+        }
+        \makeatother
+
+        \usepackage{titlesec}
+        \titlespacing*{\section}{0pt}{0.5em plus .2em minus .2em}{0.3em}
+        \titlespacing*{\subsection}{0pt}{0.3em plus .1em minus .1em}{0.2em}
+
+        \setlength{\parskip}{0.4em}
+        \setlength{\parindent}{5pt}
+        \usepackage{appendix}
+        % Afegeix clearpage al final del darrer element (LoF o ToC)
+        \let\oldlistoffigures\listoffigures
+        \renewcommand{\listoffigures}{\oldlistoffigures\clearpage}
+        
+        \let\oldtableofcontents\tableofcontents
+        \renewcommand{\tableofcontents}{\oldtableofcontents\IfFileExists{\jobname.lof}{}{\clearpage}}
     output-dir: output
     output-file: report.pdf
     mainfont: "Liberation Serif"
     monofont: "Liberation Mono"
     fontsize: 11pt
     geometry: "margin=2.5cm"
-    toc: true
+    toc: false
+    lof: false
     toc-depth: 2
     number-sections: false
     colorlinks: true
     linkcolor: blue
     urlcolor: blue
-    fig-pos: "H"
+    fig-pos: H
     cite-method: biblatex
+    callout-appearance: simple
+    biblio-style: ieee
+    indent: true
