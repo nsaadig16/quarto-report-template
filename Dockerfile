@@ -29,8 +29,6 @@ ENV QUARTO_PYTHON="/app/.venv/bin/python"
 
 COPY . .
 
-RUN python --version
-
 # Preview
 FROM base AS preview
 EXPOSE 7866
