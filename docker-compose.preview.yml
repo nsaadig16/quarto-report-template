@@ -1,0 +1,11 @@
+services:
+  preview:
+    build:
+      context: .
+      target: preview
+    ports:
+      - "7722:7722"
+    volumes:
+      - .:/app
+      - /app/.venv
+    restart: on-failure:3

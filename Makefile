@@ -1,20 +1,13 @@
-.PHONY: setup preview render clean
+.PHONY: preview render clean
 
-dependencies:
-	@if command -v dnf > /dev/null 2>&1; then \
-		rpm -q libxcrypt-compat || sudo dnf install -y libxcrypt-compat; \
-	elif command -v apt > /dev/null 2>&1; then \
-		dpkg -l libxcrypt-compat || sudo apt install -y libxcrypt-compat; \
-	else \
-		echo "Unsupported package manager. Please install libxcrypt-compat manually."; \
-		exit 1; \
-	fi
-setup: dependencies
-	uv sync ; \
-	( quarto check install 2>&1 | grep TinyTex ) > /dev/null || quarto install tinytex 
-preview: setup
-	source .venv/bin/activate && quarto preview report.qmd --host 127.0.0.1 --port 7722 --quiet
-render: setup
-	source .venv/bin/activate && quarto render --to pdf
+preview:
+	@echo -e "\033[33mStarting preview...\033[0m"
+	docker compose -f docker-compose.preview.yml up --build
+
+render:
+	@echo -e "\033[33mStarting render...\033[0m"
+	docker compose -f docker-compose.render.yml up --build
+	@echo -e "\033[32mRender successfuly completed. Check the pdf in the output folder.\033[0m"
 clean:
-	rm -rf .venv .quarto uv.lock *.log *.tex output/*
+	@rm -rf .quarto .venv *.quarto_ipynb*
+	@echo -e "\033[32mCleaned up!\033[0m"
