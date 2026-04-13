@@ -4,7 +4,12 @@ author:
   - name: "Your name"
     mail: "Your email"
 date: "Month day, 2026"
+# Comment these to skip bibliography:
+#====================
 bibliography: reference.bibtex
+biblio-style: ieee
+cite-method: biblatex
+#====================
 # You can toggle these:
 #====================
 lof: true
